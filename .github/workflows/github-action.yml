@@ -41,4 +41,5 @@ jobs:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.NAME }}
           password: ${{ secrets.PASSWORD }}
+          port:  ${{  secrets.PORT  }}
           script: sudo sh /home/gyeong/dev-hi/deploy.sh
