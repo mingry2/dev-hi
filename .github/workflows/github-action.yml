@@ -31,15 +31,11 @@ jobs:
         docker build -t ${{ secrets.DOCKER_USERNAME }}/dev-hi .
         docker push ${{ secrets.DOCKER_USERNAME }}/dev-hi
 
-  deploy:
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: connect to server
-        uses: appleboy/ssh-action@master
-        with:
-          host: ${{ secrets.HOST }}
-          username: ${{ secrets.NAME }}
-          password: ${{ secrets.PASSWORD }}
-          port:  ${{  secrets.PORT  }}
-          script: sudo sh /home/gyeong/dev-hi/deploy.sh
+    - name: connect to server and deploy
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ secrets.HOST }}
+        username: ${{ secrets.NAME }}
+        password: ${{ secrets.PASSWORD }}
+        port:  ${{  secrets.PORT  }}
+        script: sudo sh /home/gyeong/dev-hi/deploy.sh
