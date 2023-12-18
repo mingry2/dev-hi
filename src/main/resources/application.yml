@@ -1,6 +1,16 @@
 spring:
+  # mysql - db
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:8080/db
     username: root
     password: 1q2w3e4r
+
+  # OAuth
+  security:
+    oauth2:
+      client:
+        registration:
+          github:
+            client-id: client-id
+            client-secret: client-secret
